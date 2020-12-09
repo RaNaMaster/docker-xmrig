@@ -30,6 +30,7 @@ RUN adduser -S -D -H -h /xmrig miner
 RUN apk --no-cache upgrade && \
 	apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing hwloc-dev 
 USER miner
+VOLUME /xmrig/
 WORKDIR /xmrig/
 COPY --from=build /xmrig/build/xmrig /xmrig/xmrig
 ENTRYPOINT ["./xmrig"]
